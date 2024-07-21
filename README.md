@@ -70,6 +70,6 @@ data = []
 
 Estas líneas de código constituyen la fase de inicialización y preparación del proceso de extracción. Están diseñadas para:
 
-- 1. Abrir y acceder al contenido del PDF.
-- 2. Extraer y preparar el texto de la primera página para su procesamiento.
-- 3. Preparar estructuras de datos (listas) para almacenar la información que se extraerá posteriormente.
+- Abrir y acceder al contenido del PDF.
+- Extraer y preparar el texto de la primera página para su procesamiento.
+- Preparar estructuras de datos (listas) para almacenar la información que se extraerá posteriormente.
