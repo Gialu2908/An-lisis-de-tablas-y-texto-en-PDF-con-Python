@@ -20,3 +20,4 @@ from rich import print
 ```Función principal
 extract_from_astore_shop(path)
 ```
+- Esta línea define la función principal. Toma un parámetro , que es la ruta al archivo PDF que se va a procesar.path
