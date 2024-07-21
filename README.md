@@ -17,5 +17,6 @@ from rich import print
 
 
 ### 2. Función principal
-```extract_from_astore_shop(path)
+```Función principal
+extract_from_astore_shop(path)
 ```
