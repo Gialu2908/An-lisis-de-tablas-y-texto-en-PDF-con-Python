@@ -1,0 +1,96 @@
+import re
+import pdfplumber as pdfp
+from rich import print
+
+def extract_from_astore_shop(path):
+    """ Extracts information from pdf"""
+    pdf = pdfp.open(path)
+    first_page = pdf.pages[0]
+    first_page_text = first_page.extract_text().split('\n')
+    data = []
+    dates = []
+    for element in first_page_text:
+        date = find_date(element)
+        if date:
+            dates.append(date[0])
+        if 'Número da encomenda:' in element:
+            order = element.split(' ')[3].strip()
+
+    date = dates[0]
+    date = dates[0].split('/')
+    date[-1] = '20' + date[-1] # add the 20 to make 2023 and so on
+    date = '/'.join(date)
+
+    all_text = []
+    for page in pdf.pages:
+        text = page.extract_text()
+        all_text.append(text)
+
+    all_text = '\n'.join(all_text)
+    all_text_list = all_text.split('\n')
+
+    index_iterable_items = []
+    for i, item in enumerate(all_text_list):
+        digits_index = find_seven_consecutive_numbers(item)
+        if digits_index:
+            index_iterable_items.append(i)
+
+    # filter items in text list
+    filtered_items = filter_items(index_iterable_items, all_text_list)
+
+    for key, value in filtered_items.items():
+        filt_list = value.split(' ')
+        for i, item in enumerate(filt_list):
+            if ' €\n' in item:
+                filt_list[i] = item.split(' ')[0]
+                filt_list.insert(i+1, item.split(' ')[-1])
+            elif '€' in item:
+                filt_list[i] = item.replace('€', '')
+            elif '=' in item:
+                filt_list[i] = item.replace('=', '')
+
+        filt_list = [item for item in filt_list if item != '']
+        filt_list = filt_list[1:-4]
+        isfloat = is_float(filt_list[0])
+        if filt_list[-1] == '/':
+            if isfloat:
+                filt_list.insert(0, 'Não Identificado (ver código)')
+            code = filt_list.pop(0)
+            filt_list.pop(-1)
+            price = float(filt_list.pop(-1))
+            product = ' '.join(filt_list)
+            quantity = 1.0
+            data.append(
+                {
+                'código': code,
+                'produto': product,
+                'quantidade': quantity,
+                'unidade': 'kg',
+                'preço': price,
+                'total': price*quantity})
+        else:
+            if isfloat:
+                filt_list.insert(0, 'Não Identificado (ver código)')
+            if ('Quilos' in filt_list) or ('Garrafas' in filt_list):
+                filt_list = filt_list[:-1]
+            code = filt_list.pop(0)
+            filt_list = [item for item in filt_list if item != '/']
+            quantity = float(filt_list.pop(-1))
+            if (filt_list[-1] == 'Quilo') or (filt_list[-1] == 'Litro'):
+                filt_list.pop(-1)
+            price = float(filt_list.pop(-1))
+            product = ' '.join(filt_list)
+            data.append(
+                    {
+                        'código': code,
+                        'produto': product,
+                        'quantidade': quantity,
+                        'unidade': 'kg',
+                        'preço': price,
+                        'total': price*quantity})
+
+
+    return {
+        'order': order,
+        'date': date,
+        'data': data}
