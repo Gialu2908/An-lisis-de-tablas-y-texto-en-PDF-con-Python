@@ -14,3 +14,8 @@ from rich import print
 - re: Módulo para trabajar con expresiones regulares.
 - pdfplumber: Biblioteca para extraer información de archivos PDF.
 - rich: Biblioteca para mejorar la salida en la consola.
+
+
+### 2. Función principal
+```extract_from_astore_shop(path)
+```
