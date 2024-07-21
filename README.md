@@ -12,3 +12,5 @@ Este script esta diseñado para extraer información de facturas u pedidos en fo
 - re: Módulo para trabajar con expresiones regulares.
 - pdfplumber: Biblioteca para extraer información de archivos PDF.
 - rich: Biblioteca para mejorar la salida en la consola.
+
+
