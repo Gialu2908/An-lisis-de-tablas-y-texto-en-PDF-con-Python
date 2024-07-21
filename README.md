@@ -26,8 +26,8 @@ def extract_from_astore_shop(path):
     data = []
     dates = []
 ```
-- Descripcion linea por linea del anterior Script
-- Esta línea define la función principal. Toma un parámetro , que es la ruta al archivo PDF que se va a procesar.path
+Descripcion linea por linea del anterior Script
+Esta línea define la función principal. Toma un parámetro , que es la ruta al archivo PDF que se va a procesar.path
 ```Función principal
 extract_from_astore_shop(path)
 ```
@@ -37,8 +37,14 @@ Esta es una docstring, que proporciona una breve descripción de lo que hace la 
 """ Extracts information from pdf"""
 ```
 
-- Aquí, se utiliza la biblioteca (importada como ) para abrir el archivo PDF especificado por .pdfplumberpdfppath
-- El objeto PDF resultante se almacena en la variable .pdf
+Aquí, se utiliza la biblioteca (importada como ) para abrir el archivo PDF especificado por .pdfplumberpdfppath
+El objeto PDF resultante se almacena en la variable .pdf
 ``` pdf = pdfp.open(path)
 pdf = pdfp.open(path)
+```
+
+Esta línea accede a la primera página del PDF.
+pdf.pages es una lista de todas las páginas del PDF, y selecciona la primera página.[0]
+```first_page = pdf.pages[0]
+first_page = pdf.pages[0]
 ```
