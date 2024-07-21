@@ -27,4 +27,8 @@ Esta es una docstring, que proporciona una breve descripción de lo que hace la 
 """ Extracts information from pdf"""
 ```
 
-
+- Aquí, se utiliza la biblioteca (importada como ) para abrir el archivo PDF especificado por .pdfplumberpdfppath
+- El objeto PDF resultante se almacena en la variable .pdf
+``` pdf = pdfp.open(path)
+pdf = pdfp.open(path)
+```
