@@ -17,6 +17,15 @@ from rich import print
 
 
 ### 2. Función principal
+```Función principal
+def extract_from_astore_shop(path):
+    """ Extracts information from pdf"""
+    pdf = pdfp.open(path)
+    first_page = pdf.pages[0]
+    first_page_text = first_page.extract_text().split('\n')
+    data = []
+    dates = []
+```
 - Esta línea define la función principal. Toma un parámetro , que es la ruta al archivo PDF que se va a procesar.path
 ```Función principal
 extract_from_astore_shop(path)
