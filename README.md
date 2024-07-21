@@ -17,14 +17,14 @@ from rich import print
 
 
 ### 2. Función principal
+- Esta línea define la función principal. Toma un parámetro , que es la ruta al archivo PDF que se va a procesar.path
 ```Función principal
 extract_from_astore_shop(path)
 ```
-- Esta línea define la función principal. Toma un parámetro , que es la ruta al archivo PDF que se va a procesar.path
 
+Esta es una docstring, que proporciona una breve descripción de lo que hace la función. En este caso, indica que la función extrae información de un PDF.
 ```Esta es una docstring
 """ Extracts information from pdf"""
 ```
-Esta es una docstring, que proporciona una breve descripción de lo que hace la función. En este caso, indica que la función extrae información de un PDF.
 
 
