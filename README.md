@@ -55,3 +55,21 @@ first_page = pdf.pages[0]
 ```first_page_text = first_page.extract_text().split('\n')
 first_page_text = first_page.extract_text().split('\n')
 ```
+
+- Inicializa una lista vacía llamada .data
+- Esta lista se utilizará más adelante para almacenar la información extraída de los productos o ítems del pedido.
+```data = []
+data = []
+```
+
+- Inicializa otra lista vacía llamada .dates
+- Esta lista se usará para almacenar las fechas encontradas en el documento.
+```data = []
+data = []
+```
+
+Estas líneas de código constituyen la fase de inicialización y preparación del proceso de extracción. Están diseñadas para:
+
+- 1. Abrir y acceder al contenido del PDF.
+- 2. Extraer y preparar el texto de la primera página para su procesamiento.
+- 3. Preparar estructuras de datos (listas) para almacenar la información que se extraerá posteriormente.
