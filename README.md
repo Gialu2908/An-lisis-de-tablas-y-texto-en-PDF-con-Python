@@ -48,3 +48,10 @@ pdf.pages es una lista de todas las páginas del PDF, y selecciona la primera p�
 ```first_page = pdf.pages[0]
 first_page = pdf.pages[0]
 ```
+
+first_page.extract_text() extrae todo el texto de la primera página como una sola cadena.
+.split('\n') divide esta cadena en una lista de strings, separando por saltos de línea.
+El resultado es una lista donde cada elemento es una línea de texto de la primera página.
+```first_page_text = first_page.extract_text().split('\n')
+first_page_text = first_page.extract_text().split('\n')
+```
