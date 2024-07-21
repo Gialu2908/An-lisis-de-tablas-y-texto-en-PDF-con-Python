@@ -5,11 +5,12 @@
 Este script esta diseñado para extraer información de facturas u pedidos en formato PDF
 ### 1. Importaciones:
 
+´´´
 > import re
-- re: Módulo para trabajar con expresiones regulares.
 > import pdfplumber as pdfp
-- pdfplumber: Biblioteca para extraer información de archivos PDF.
 > from rich import print
+´´´
+
+- re: Módulo para trabajar con expresiones regulares.
+- pdfplumber: Biblioteca para extraer información de archivos PDF.
 - rich: Biblioteca para mejorar la salida en la consola.
-
-
