@@ -6,11 +6,9 @@ Este script esta diseñado para extraer información de facturas u pedidos en fo
 ### 1. Importaciones:
 
 ´´´
-> import re
-´´´
-> import pdfplumber as pdfp
-´´´
-> from rich import print
+import re
+import pdfplumber as pdfp
+from rich import print
 ´´´
 
 - re: Módulo para trabajar con expresiones regulares.
